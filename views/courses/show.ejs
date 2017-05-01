@@ -1,0 +1,16 @@
+<% include ../partials/header.ejs %>
+
+<h1><%= course.name %></h1>
+
+<img src = "<%= course.img %>">
+<p><%= course.topic %></p>
+<p>
+    <a class = "btn btn-success" href ="/courses/<%= course._id %>/comments/new">Add Comment</a>
+</p>
+<% course.comments.forEach(function(comment){ %>
+    <p><strong></strong><%=comment.author %></strong> - 
+    <%= comment.text %></p>
+<% }) %>
+
+ 
+<% include ../partials/footer.ejs %>

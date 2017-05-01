@@ -1,0 +1,26 @@
+<% include ../partials/header.ejs %>
+
+<div class = 'container'>
+    <div class = 'row'>
+       <h1 style ="text-align: center">Create New Course </h1>
+       <div style = 'width: 30%; margin: 25px auto;'>
+            <form action ='/courses' method = 'POST' >
+                <div class = 'form-group'>
+                    <input class = 'form-control' type = 'text' name= "name" placeholder = "name">
+                </div>
+                <div class = 'form-group'>
+                    <input class = 'form-control' type = 'text' name = 'image' placeholder = 'image url'>
+                </div>
+                <div class = 'form-group'>
+                    <input class = 'form-control' type = 'text' name = 'topic' placeholder = 'Whats this course about'>
+                </div>
+                <div class = 'form-group'>
+                     <button class = 'btn btn-lg btn-default btn-block btn-primary'>Submit</button>
+                </div>
+            </form>
+            <a href = '/courses'>View Courses</a> 
+        </div>
+    </div>
+    
+</div>
+<% include ../partials/footer.ejs %>
