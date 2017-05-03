@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Course = require('./models/course.js');
 var Comment = require('./models/comment.js');
+var Rating = require('./models/rating.js');
 var seedDB = require("./seeds.js");
 
 

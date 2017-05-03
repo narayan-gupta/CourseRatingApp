@@ -12,5 +12,9 @@
     <%= comment.text %></p>
 <% }) %>
 
+<% course.ratings.forEach(function(rating){ %>
+    <p> <%= rating.score %> </p>
+
+<% }) %>
  
 <% include ../partials/footer.ejs %>

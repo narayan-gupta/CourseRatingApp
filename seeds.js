@@ -1,6 +1,7 @@
 var mongoose = require("mongoose");
 var Course = require('./models/course.js');
 var Comment = require('./models/comment.js');
+var Rating = require('./models/rating.js');
 var data = [
     {
      name: "Intro To Ruby",
@@ -41,6 +42,18 @@ function seedDB(){
                             console.log(err);
                         } else { 
                             data.comments.push(comment);
+                            data.save();
+                        }
+                });
+                Rating.create(
+                    {
+                        score: 5,
+                        author: "Me"
+                    }, function(err,rating){
+                        if(err){
+                            console.log(err);
+                        } else { 
+                            data.ratings.push(rating);
                             data.save();
                         }
                 });
