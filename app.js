@@ -6,6 +6,8 @@ var Course = require('./models/course.js');
 var Comment = require('./models/comment.js');
 var Rating = require('./models/rating.js');
 var seedDB = require("./seeds.js");
+var LocalStratedgy = require('passport-local');
+var passportLocalMongoose = require('passport-local-mongoose'); 
 
 
 seedDB();
