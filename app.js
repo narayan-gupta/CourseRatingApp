@@ -6,14 +6,29 @@ var Course = require('./models/course.js');
 var Comment = require('./models/comment.js');
 var Rating = require('./models/rating.js');
 var seedDB = require("./seeds.js");
+var passport = require('passport');
 var LocalStratedgy = require('passport-local');
 var passportLocalMongoose = require('passport-local-mongoose'); 
+var User = require('./models/user.js')
 
 
-seedDB();
+
+
+
+
 mongoose.connect('mongodb://localhost/course-app');
+seedDB();
 app.use(bodyParser.urlencoded({extended: true}));
-    
+// User Authentication Stuff
+app.use(require("express-session")({
+    secret: "This is a test",
+    resave: false,
+    saveUnitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+// ***************************************************************************************    
 
     
 
@@ -59,7 +74,7 @@ app.get("/courses/new",function(req,res){
 //Show Page for one course
 app.get("/courses/:id", function(req,res){
     var id = req.params.id
-    Course.findById(id).populate("comments").exec(function(err,foundCourse){
+    Course.findById(id).populate("comments").populate("ratings").exec(function(err,foundCourse){
         if(err){
             console.log("Course Not Found");
         } else{

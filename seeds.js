@@ -53,6 +53,7 @@ function seedDB(){
                         if(err){
                             console.log(err);
                         } else { 
+                            console.log(rating.score);
                             data.ratings.push(rating);
                             data.save();
                         }
